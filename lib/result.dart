@@ -9,15 +9,13 @@ class Result extends StatelessWidget {
   Result(this.resultScore, this.resetHandler);
 
   String get resultPhrase {
-    var resultText = 'You did it!';
-    if (resultScore <= 8) {
-      resultText = 'You are awesome!';
-    } else if (resultScore <= 12) {
-      resultText = 'You are cool!';
-    } else if (resultScore <= 16) {
-      resultText = 'You are okay!';
+    var resultText = '';
+    if (resultScore >= 30) {
+      resultText = 'You did it!';
+    } else if (resultScore >= 20) {
+      resultText = 'Very close!';
     } else {
-      resultText = 'You are bad...';
+      resultText = 'Good try!';
     }
     return resultText;
   }
@@ -27,21 +25,40 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(children: <Widget>[
-        Text(
-          resultPhrase,
-          style: TextStyle(
-            fontSize: 36,
-            fontWeight: FontWeight.bold,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        FlatButton(
-          onPressed: resetHandler,
-          child: Text('Restart Quiz!'),
-          textColor: Colors.blue,
-        )
-      ]),
+      child: Container(
+          margin: EdgeInsets.only(top: 200),
+          alignment: Alignment.center,
+          child: Column(children: <Widget>[
+            Text(
+              'Your score:',
+              style: TextStyle(
+                color: Colors.indigo,
+              ),
+            ),
+            Text(
+              resultScore.toString() + ' / 30',
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.indigo,
+              ),
+            ),
+            Text(
+              resultPhrase,
+              style: TextStyle(
+                fontSize: 36,
+                fontWeight: FontWeight.bold,
+                color: Colors.black54,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            RaisedButton(
+              onPressed: resetHandler,
+              color: Colors.indigoAccent,
+              child: Text('Try again!'),
+              textColor: Colors.white,
+            )
+          ])),
     );
   }
 }

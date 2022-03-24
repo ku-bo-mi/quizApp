@@ -24,7 +24,8 @@ class _MyAppState extends State<MyApp> {
   // const: never change. compile-time constant
   final _questions = const [
     {
-      'questionText': 'Which mammal is known to have the most powerful bite in the world?',
+      'questionText':
+          'Which mammal is known to have the most powerful bite in the world?',
       'answers': [
         {'text': 'Elephant', 'score': 0},
         {'text': 'Dog', 'score': 0},
@@ -33,7 +34,8 @@ class _MyAppState extends State<MyApp> {
       ]
     },
     {
-      'questionText': 'Which animal is known to spend 90% of its day, sleeping?',
+      'questionText':
+          'Which animal is known to spend 90% of its day, sleeping?',
       'answers': [
         {'text': 'Cat', 'score': 0},
         {'text': 'Lazy monky', 'score': 0},
@@ -60,7 +62,6 @@ class _MyAppState extends State<MyApp> {
       _questionIndex = 0;
       _totalScore = 0;
     });
-    
   }
 
   // this method is called when the answer is pressed
@@ -86,7 +87,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My Test App'),
+          title: Text('Animal Quiz'),
+          backgroundColor: Colors.indigo,
         ),
         // ?: if the condition is true, then create the column
         body: _questionIndex < _questions.length
